@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.beguts.wyfx"
+      android:versionCode="15"
+      android:versionName="1.0.5" >
+
+    <uses-sdk android:minSdkVersion="16"
+        	  android:targetSdkVersion="21" />
+
+    
+    <uses-feature android:glEsVersion="0x00020000" />
+	
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--  BEGIN 渠道配置的额外Permission  -->
+<!--google play支付权限-->
+<uses-permission android:name="com.android.vending.BILLING" />
+
+<!-- 极光推送 -->
+<permission
+	android:name="com.beguts.wyfx.permission.JPUSH_MESSAGE"
+	android:protectionLevel="signature" />
+
+<uses-permission android:name="com.beguts.wyfx.permission.JPUSH_MESSAGE" />
+<uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/> 
+    <!--  END   渠道配置的额外Permission  -->
+
+    <application android:label="@string/app_name"
+        android:debuggable="false"
+        android:allowBackup="true"
+        android:icon="@drawable/fr2_icon"
+        android:name=".FRApplication">
+
+        <meta-data
+            android:name="channelID"
+            android:value="111111" > 
+        </meta-data>
+
+        <meta-data
+            android:name="fanren-debug"
+            android:value="false" > 
+        </meta-data>
+
+        <!--  BEGIN 渠道配置的额外Meta-data  -->
+<meta-data
+	android:name="GAME_ID"
+	android:value="44" />
+<meta-data
+	android:name="PAY_SIGN"
+	android:value="c248e5ee9f7426590141672ebc11cd24" />
+<meta-data
+	android:name="JH_APPID"
+	android:value="100000050" />
+<meta-data
+	android:name="JH_APPKEY"
+	android:value="0ae07ee4d9ddbf961426879a20a69c07" />
+<meta-data
+	android:name="JUNHAI Channel"
+	android:value="junhai" />
+<meta-data android:name="JUNHAI_DEBUG" android:value="true"/>	
+		
+<meta-data android:name="com.google.android.gms.version" 
+    		android:value="@integer/google_play_services_version" />
+
+ <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+  <!-- Required  . Enable it you can get statistics data with channel -->
+<meta-data android:name="JPUSH_CHANNEL" android:value="begutsgp"/>
+<meta-data android:name="JPUSH_APPKEY" android:value="b237668d9b458f988a44ff21" /> <!--  </>值来自开发者平台取得的AppKey-->
+        <!--  END   渠道配置的额外Meta-data  -->
+
+        <activity android:name=".FanRen"
+                  android:label="@string/app_name"
+                  android:screenOrientation="landscape"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateHidden"
+                   
+                  android:launchMode="singleTask" >
+                  <intent-filter>
+                      <action android:name="android.intent.action.MAIN" />
+                      <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                      <category android:name="android.intent.category.DEFAULT" />
+                      
+                  </intent-filter>
+                  
+                  
+        </activity>
+        <activity android:name=".LoadingActivity"
+                  android:screenOrientation="landscape"
+                  android:theme="@android:style/Theme.NoTitleBar">
+                  <intent-filter>
+                      <action android:name="android.intent.action.MAIN" />
+                      <category android:name="android.intent.category.LAUNCHER" />
+                     <category android:name="android.intent.category.DEFAULT" />
+
+                  </intent-filter>
+
+                  
+
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.PublishActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.GeneralInterfaceActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.ConversationActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.FriendActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.Authorize" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.GeneralDataShowActivity" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.sdk.android.component.ReAddActivity" >
+        </activity>
+        <service
+            android:name="com.flamingo.jni.notification.AlarmService"  >
+        </service>
+        <service
+            android:name="com.flamingo.jni.notification.NotificationService" >
+        </service>     
+
+        <!--  BEGIN 渠道配置的额外Activity & Service  -->
+<activity android:name="com.facebook.FacebookActivity"
+          android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:label="@string/app_name" />
+
+<activity android:name="com.facebook.LoginActivity"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:label="@string/app_name" />
+
+<receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">
+	<intent-filter>
+		<action android:name="com.android.vending.INSTALL_REFERRER" />
+	</intent-filter>
+</receiver>
+
+<!-- 极光推送 -->
+	    <!-- Rich push 核心功能 since 2.0.6-->
+        <!-- <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle" >
+
+        </activity> -->
+
+        <!-- Required SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.beguts.wyfx" />
+            </intent-filter>
+        </activity>
+        <!-- Required  SDK核心功能-->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+    
+        
+        <!-- Required SDK 核心功能-->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+         <!-- Required SDK核心功能-->
+         <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+             <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
+                <category android:name="com.beguts.wyfx" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+             <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+   
+        </receiver>
+
+         <!-- Required SDK核心功能-->
+<receiver android:name="cn.jpush.android.service.AlarmReceiver" android:exported="false"/>
+
+        <!--  END   渠道配置的额外Activity & Service  -->
+    </application>
+
+</manifest> 

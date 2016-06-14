@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fanren_xiaomi" default="frrelease" >
+
+    <property environment="env"/>
+    <property name="sdk.dir" value="${env.ANDROID_SDK_ROOT}" />
+    <property name="fanren.root" value="../.." />
+
+    <fail
+        message="Android SDK directory is missing! Check ANDROID_SDK_ROOT path in your os env!"
+        unless="sdk.dir" >
+    </fail>
+
+    <loadproperties srcFile="ant.properties" />
+    <loadproperties srcFile="project.properties" />
+    <loadproperties srcFile="${fanren.root}/general/property/share.properties" />
+
+    <import file="${fanren.root}/general/build/build_share.xml" />
+    <import file="${fanren.root}/general/build/build_agent.xml" />
+
+
+    <target name="-pre-compile" >
+        <ant target="agent-pre-compile" />
+        
+        <path id="project.all.jars.path" >
+        <path path="${toString:project.all.jars.path}"/>
+        <fileset dir="${jar.libs.dir}">
+            <include name="*.jar"/>
+            <include name="**/*.jar"/>
+        </fileset>
+        </path>
+    </target>
+
+    <target name="-pre-build" >
+        <ant target="agent-pre-build" />
+    </target>
+
+    <target name="-post-build" >
+        <ant target="agent-post-build" />
+    </target>
+
+</project>

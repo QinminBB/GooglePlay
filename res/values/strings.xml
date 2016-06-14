@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<add-resource type="string" name="app_name" />
+	<add-resource type="string" name="back_alert_title" />
+	<add-resource type="string" name="back_alert_content" />
+    <string name="app_name">八家將</string>
+    <string name="back_alert_title">八家將</string>
+	<string name="back_alert_content">确定退出游戏吗?</string>
+	<string name="facebook_app_id">446225962237706</string>
+</resources>

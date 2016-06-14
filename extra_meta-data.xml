@@ -1,0 +1,25 @@
+<meta-data
+	android:name="GAME_ID"
+	android:value="44" />
+<meta-data
+	android:name="PAY_SIGN"
+	android:value="c248e5ee9f7426590141672ebc11cd24" />
+<meta-data
+	android:name="JH_APPID"
+	android:value="100000050" />
+<meta-data
+	android:name="JH_APPKEY"
+	android:value="0ae07ee4d9ddbf961426879a20a69c07" />
+<meta-data
+	android:name="JUNHAI Channel"
+	android:value="junhai" />
+<meta-data android:name="JUNHAI_DEBUG" android:value="true"/>	
+		
+<meta-data android:name="com.google.android.gms.version" 
+    		android:value="@integer/google_play_services_version" />
+
+ <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+  <!-- Required  . Enable it you can get statistics data with channel -->
+<meta-data android:name="JPUSH_CHANNEL" android:value="begutsgp"/>
+<meta-data android:name="JPUSH_APPKEY" android:value="b237668d9b458f988a44ff21" /> <!--  </>值来自开发者平台取得的AppKey-->
